@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+:root {
+  --width: 850px;
+  --height: 450px;
+  --Very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --Dark-grayish-blue: hsl(240, 6%, 50%);
+  --Light-grayish-blue: hsl(240, 5%, 91%);
+  --Soft-red: hsl(14, 88%, 65%);
+  --count: 10px;
+}
+
+body {
+  height: 100vh;
+  background: #6565e7;
+  background: -webkit-gradient(linear, left bottom, left top, from(#6565e7), to(#af67e9));
+  background: linear-gradient(0deg, #6565e7 0%, #af67e9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6565e7",endColorstr="#af67e9",GradientType=1);
+  background-repeat: no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.centerBox {
+  width: var(--width);
+  height: var(--height);
+  background-color: white;
+  border-radius: 40px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[1];
+  -ms-grid-columns: (1fr)[2];
+      grid-template: repeat(1, 1fr)/repeat(2, 1fr);
+  grid-gap: 50px;
+  box-shadow: 23px 35px 93px 17px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 23px 35px 93px 17px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 23px 35px 93px 17px rgba(0, 0, 0, 0.4);
+}
+
+.image {
+  position: relative;
+  width: calc(var(--width)/2);
+  height: var(--height);
+  overflow: hidden;
+}
+
+.imageBox {
+  position: relative;
+}
+
+.womenImage {
+  width: calc(var(--width)/2);
+  position: absolute;
+  left: -67px;
+  top: 51px;
+}
+
+.womanBg {
+  height: calc(var(--height) + 150px);
+  width: 720px;
+  position: relative;
+  top: -143px;
+  left: -359px;
+  -webkit-transform: scaleY(1.3);
+          transform: scaleY(1.3);
+}
+
+.cube {
+  position: absolute;
+  top: 150px;
+  left: -110px;
+  z-index: 9999 !important;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-transform: translate(var(--count), 10px);
+          transform: translate(var(--count), 10px);
+}
+
+.fqa {
+  margin: 10px 5px 0 0;
+  padding: 50px 35px 0 0;
+  position: relative;
+  left: -10px;
+}
+
+.faq-H1 {
+  padding: 10px;
+  font-weight: 700;
+}
+
+.fqa-container {
+  width: 100%;
+  margin: auto;
+}
+
+.fqa-container .answer {
+  width: 98%;
+  width: calc(100% - 20px);
+  margin: 0 auto;
+  height: 0;
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.2);
+  line-height: 23px;
+  padding: 0 0px;
+  font-size: x-small;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  border-bottom: 2px solid var(--Light-grayish-blue);
+}
+
+.fqa-container label {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: block;
+  padding: 15px;
+  padding-left: 10px;
+  width: 100%;
+  color: var(--Very-dark-grayish-blue);
+  font-weight: 400;
+  font-size: small;
+  z-index: 100;
+}
+
+.fqa-container label:hover {
+  color: var(--Soft-red);
+  --count: -73px;
+}
+
+.fqa-container input:checked + label:hover {
+  color: var(--Very-dark-grayish-blue);
+}
+
+.fqa-container input {
+  display: none;
+}
+
+.fqa-container label:before {
+  font-family: 'Kumbh Sans', sans-serif;
+  content: url(../images/icon-arrow-down.svg);
+  font-weight: bolder;
+  float: right;
+}
+
+.fqa-container input:checked + label {
+  background-color: rgba(255, 255, 255, 0.15);
+  font-weight: 700;
+}
+
+.fqa-container input:checked + label:before {
+  font-family: 'Kumbh Sans', sans-serif;
+  content: url(../images/icon-arrow-down.svg);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fqa-container input:checked ~ .answer {
+  height: auto;
+  color: var(--Dark-grayish-blue);
+  font-size: x-small;
+  line-height: 18px;
+}
+
+.attribution {
+  position: relative;
+  top: 60px;
+  font-size: 12px;
+  text-align: center;
+  color: black;
+}
+
+.attribution a {
+  color: white;
+}
+
+.attribution a:hover {
+  color: var(--Soft-red);
+}
+/*# sourceMappingURL=styles.css.map */
