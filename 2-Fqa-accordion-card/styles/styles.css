@@ -14,7 +14,6 @@
   --Dark-grayish-blue: hsl(240, 6%, 50%);
   --Light-grayish-blue: hsl(240, 5%, 91%);
   --Soft-red: hsl(14, 88%, 65%);
-  --count: 10px;
 }
 
 body {
@@ -90,8 +89,37 @@ body {
   z-index: 9999 !important;
   -webkit-transition: 0.5s;
   transition: 0.5s;
-  -webkit-transform: translate(var(--count), 10px);
-          transform: translate(var(--count), 10px);
+  -webkit-transform: translate(10px, 10px);
+          transform: translate(10px, 10px);
+}
+
+.cube:hover {
+  -webkit-animation: cubic 3s 1;
+          animation: cubic 3s 1;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+@-webkit-keyframes cubic {
+  40% {
+    -webkit-transform: translate(10px, -50px);
+            transform: translate(10px, -50px);
+  }
+  90% {
+    -webkit-transform: translate(10px, 10px);
+            transform: translate(10px, 10px);
+  }
+}
+
+@keyframes cubic {
+  40% {
+    -webkit-transform: translate(10px, -50px);
+            transform: translate(10px, -50px);
+  }
+  90% {
+    -webkit-transform: translate(10px, 10px);
+            transform: translate(10px, 10px);
+  }
 }
 
 .fqa {
@@ -119,16 +147,15 @@ body {
   color: rgba(0, 0, 0, 0);
   background-color: rgba(255, 255, 255, 0.2);
   line-height: 23px;
-  padding: 0 0px;
+  padding: 0px;
   font-size: x-small;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
   border-bottom: 2px solid var(--Light-grayish-blue);
 }
 
 .fqa-container label {
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   display: block;
   padding: 15px;
@@ -142,7 +169,6 @@ body {
 
 .fqa-container label:hover {
   color: var(--Soft-red);
-  --count: -73px;
 }
 
 .fqa-container input:checked + label:hover {
@@ -158,10 +184,11 @@ body {
   content: url(../images/icon-arrow-down.svg);
   font-weight: bolder;
   float: right;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .fqa-container input:checked + label {
-  background-color: rgba(255, 255, 255, 0.15);
   font-weight: 700;
 }
 
@@ -170,11 +197,15 @@ body {
   content: url(../images/icon-arrow-down.svg);
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .fqa-container input:checked ~ .answer {
   height: auto;
   color: var(--Dark-grayish-blue);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
   font-size: x-small;
   line-height: 18px;
 }
@@ -193,5 +224,75 @@ body {
 
 .attribution a:hover {
   color: var(--Soft-red);
+}
+
+@media only screen and (max-width: 375px) {
+  body {
+    width: 100vw;
+    height: 120vh;
+  }
+  .centerBox {
+    width: 300px;
+    height: 440px;
+    border-radius: 20px;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    grid-gap: 0px;
+  }
+  .womanBg, .womenImage, .cube {
+    display: none;
+  }
+  .imageBox {
+    width: 250px;
+    height: 100px;
+  }
+  .image {
+    width: 250px;
+    height: 100px;
+    overflow: visible;
+  }
+  .womenImageMobile {
+    width: 214px;
+    position: absolute;
+    top: -88px;
+    left: 29px;
+  }
+  .womanBgMobile {
+    width: 214px;
+    position: relative;
+    top: -12px;
+    left: 39px;
+  }
+  .fqa {
+    margin: 0;
+    padding: 0;
+  }
+  .faq-H1 {
+    text-align: center;
+  }
+  .fqa-container {
+    padding: 2px;
+    width: 100%;
+    position: relative;
+    right: -12px;
+  }
+  .fqa-container label {
+    font-size: x-small;
+  }
+  .fqa-container .answer {
+    font-size: x-small !important;
+  }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 1440px) {
+  .womanBgMobile, .womenImageMobile {
+    display: none;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
