@@ -226,7 +226,7 @@ body {
   color: var(--Soft-red);
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 480px) {
   body {
     width: 100vw;
     height: 120vh;
@@ -290,7 +290,7 @@ body {
   }
 }
 
-@media only screen and (min-width: 375px) and (max-width: 1440px) {
+@media only screen and (min-width: 480px) and (max-width: 1440px) {
   .womanBgMobile, .womenImageMobile {
     display: none;
   }
