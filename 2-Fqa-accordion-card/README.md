@@ -187,4 +187,4 @@ Learning is a very beautiful thing in the world. So, I will continue my learning
 
 ## Acknowledgments
 
-I want thank to Dandiws. His pen is helped me 
+I want thank to Dandiws. His pen helped me lot
