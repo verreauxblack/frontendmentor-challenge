@@ -1,0 +1,295 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap");
+:root {
+  --Soft-Cyan: hsl(174, 77%, 80%);
+  --Strong-Cyan: hsl(174, 86%, 45%);
+  --Light-Grayish-Red: hsl(14, 92%, 95%);
+  --Light-Red: hsl(15, 100%, 70%);
+  --Pale-Blue: hsl(226, 100%, 87%);
+  --White: hsl (0, 0%, 100%);
+  --Very-Pale-Blue: hsl(230, 100%, 99%);
+  --Light-Grayish-Blue-slider: hsl(224, 65%, 95%);
+  --Light-Grayish-Blue-toggle: hsl(223, 50%, 87%);
+  --Grayish-Blue: hsl(225, 20%, 60%);
+  --Dark-Desaturated-Blue: hsl(227, 35%, 25%);
+  --font-family: 'Manrope', sans-serif;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  font-family: var(--font-family);
+}
+
+body {
+  background-color: var(--Very-Pale-Blue);
+  height: 100vh;
+}
+
+.center {
+  width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.bg-image {
+  position: absolute;
+  width: 400px;
+  height: 450px;
+  border-bottom-left-radius: 174px;
+  top: 0px;
+}
+
+.head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 30px 0px;
+  height: 250px;
+  width: 100vw;
+}
+
+.circle {
+  position: absolute;
+  height: 160px;
+}
+
+.title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.title h2 {
+  color: var(--Dark-Desaturated-Blue);
+  font-size: 21px;
+  font-weight: 800;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.title p {
+  color: var(--Grayish-Blue);
+  font-size: 15px;
+  text-align: center;
+}
+
+.container {
+  background-color: White;
+  width: 350px;
+  height: 480px;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 30px;
+  color: var(--Grayish-Blue);
+  box-shadow: 0px 18px 36px 1px rgba(0, 0, 0, 0.28);
+  -webkit-box-shadow: 0px 18px 36px 1px rgba(0, 0, 0, 0.28);
+  -moz-box-shadow: 0px 18px 36px 1px rgba(0, 0, 0, 0.28);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container h4 {
+  text-align: center;
+  padding: 30px;
+}
+
+.slider-range {
+  width: 300px;
+  height: 15px;
+  color: var(--Light-Grayish-Blue-slider);
+  outline: none;
+  overflow: hidden;
+}
+
+.slider-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-image: url(../images/icon-slider.svg);
+  width: 300px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.slider-range::-webkit-slider-track {
+  -webkit-appearance: none;
+  content: "";
+  width: 40px;
+  background-color: var(--Soft-Cyan);
+}
+
+.billing {
+  margin-bottom: 10px;
+  font-size: smaller;
+}
+
+.hr {
+  border-bottom: 1px solid var(--Grayish-Blue);
+  width: 350px;
+  margin: 20px 0px;
+}
+
+.container hr {
+  height: .1px;
+  background-color: var(--Grayish-Blue);
+}
+
+.discount {
+  display: none;
+}
+
+.switch {
+  display: inline-block;
+  width: 52px;
+  height: 26px;
+  margin: 0 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch input:checked + .slider {
+  background-color: var(--Strong-Cyan);
+}
+
+.switch input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px var(--Strong-Cyan);
+          box-shadow: 0 0 1px var(--Strong-Cyan);
+}
+
+.switch input:checked + .slider::before {
+  -webkit-transform: translateX(26px);
+          transform: translateX(26px);
+}
+
+.switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--Light-Grayish-Blue-toggle);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.switch .slider::before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.switch .slider.round {
+  border-radius: 34px;
+}
+
+.switch .slider.round::before {
+  border-radius: 50px;
+}
+
+.discount-25 {
+  padding: 2px 8px;
+  font-size: x-small;
+  color: var(--Light-Red);
+  font-weight: 800;
+  background-color: var(--Light-Grayish-Red);
+  border-radius: 20px;
+}
+
+.trail-list {
+  list-style-image: url(../images/icon-check.svg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 35px;
+}
+
+.trail-list li {
+  padding-left: 10px;
+  font-size: small;
+}
+
+.trail button {
+  margin-top: 30px;
+  width: 185px;
+  height: 40px;
+  border-radius: 30px;
+  background-color: var(--Dark-Desaturated-Blue);
+  color: var(--Pale-Blue);
+  font-weight: 800;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: #3e52a3;
+}
+
+@media only screen and (min-width: 600px) {
+  .break {
+    display: none;
+  }
+  .discount {
+    display: block;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
