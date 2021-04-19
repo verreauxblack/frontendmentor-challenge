@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Interactive pricing component | verreauxblack</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="./styles/styles.css">
+
+  <script src="./app.js"></script>
+</head>
+<body>
+  
+  <div class="center">
+    
+    <img class="bg-image" src="./images/bg-pattern.svg" alt="bg">
+    
+    <div class="head">
+      
+      <img class="circle" src="./images/pattern-circles.svg" 
+      alt="cricles">
+      
+      <div class="title">
+        
+        <h2>Simple, traffic-based pricing</h2>
+        <p>Sign-up for our 30-day trial.<br class="break"> No credit card required.</p>
+        
+      </div>
+    </div>
+    <!-- <input type="text" id="text"> -->
+    
+    <div class="container">
+      <h4><span id="pages">100K</span> PAGEVIEWS</h4>
+      <input id="pageViews" class="slider-range" type="range" min="0" max="4" step="1" value="2" oninput="pageViews()">
+      <h4><strong id="price" class="price">$16.00</strong> / month</h4>
+      <div class="billing">
+        Monthly Billing
+        <label class="switch">
+          <input id="yearlyBilling" type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        Yearly Billing
+        <span class="discount-25">-25% </span>
+      </div>
+      <div class="hr"></div>
+      <!-- <hr> -->
+      <div class="trail">
+        <ul class="trail-list">
+          <li>Unlimited websites</li>
+          <li>100% data ownership</li>
+          <li>Email reports</li>
+        </ul>
+        <button >Start my trial</button>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">RAJ</a>.
+  </div>
+  
+</body>
+</html>
