@@ -11,9 +11,10 @@
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <link rel="stylesheet" href="./styles/styles.css">
 
-  <script src="./app.js"></script>
+  <!-- <script src="./app.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-<body>
+<body id="body">
   
   <div class="center">
     
@@ -31,38 +32,161 @@
         
       </div>
     </div>
-    <!-- <input type="text" id="text"> -->
     
     <div class="container">
-      <h4><span id="pages">100K</span> PAGEVIEWS</h4>
-      <input id="pageViews" class="slider-range" type="range" min="0" max="4" step="1" value="2" oninput="pageViews()">
-      <h4><strong id="price" class="price">$16.00</strong> / month</h4>
+      <div class="prices__pages">
+        <h4><span id="pages">100K</span> PAGEVIEWS</h4>
+        <h4 class="price__month"><span id="price" class="price">$16.00</span> / month</h4>
+      </div>
+      <input id="pageViews" class="slider-range" type="range" min="0" max="4" step="1" value="2" >
       <div class="billing">
         Monthly Billing
         <label class="switch">
-          <input id="yearlyBilling" type="checkbox">
+          <input id="yearlyBilling" type="checkbox" value="off">
           <span class="slider round"></span>
         </label>
         Yearly Billing
         <span class="discount-25">-25% </span>
       </div>
+      
       <div class="hr"></div>
-      <!-- <hr> -->
+
       <div class="trail">
         <ul class="trail-list">
           <li>Unlimited websites</li>
           <li>100% data ownership</li>
           <li>Email reports</li>
         </ul>
-        <button >Start my trial</button>
+        <button onclick="handleSubmit()" >Start my trial</button>
       </div>
+
     </div>
+
   </div>
  
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">RAJ</a>.
+    Coded by <a href="https://github.com/verreauxblack">RAJ</a>.
   </div>
-  
-</body>
+
+  <!-- JavaScripts -->
+  <script>
+    // const initiazion
+    const page = ["10K","50K","100K","500K","1K"]
+    const price = [8,12,16,24,36]
+    const rangeColor = [0, 33, 50, 66, 100]
+
+
+    //selectors
+    var pageView = document.querySelector('input[type="range"]');
+    var yearlyBilling = document.querySelector('input[type="checkbox"]');
+    var pageClass = document.getElementsByClassName('slider-range');
+
+    const pages = document.getElementById("pages");
+    const prices = document.getElementById("price");
+
+    // console.log("pages",pages.value)
+
+    pageView.oninput = () => {
+      pageViews();
+    }
+
+
+
+
+    function pageViews() {
+      // var percent = ((100 / 6) * (pageView.value));
+      var percent = rangeColor[pageView.value]
+      let color = `linear-gradient( 90deg, hsl(174, 77%, 80%) ${percent}%, hsl(174, 77%, 80%) ${percent}%);` ;
+      console.log(color);
+      pageView.style.backgroundImage = color;
+      // console.log
+      document.getElementById('pageViews').style.background = getCssValuePrefix() + color;
+
+
+      //call the print function according to range values
+      switch (parseInt(pageView.value)){
+        case 0:
+            pagePrint(0);
+            break;
+        case 1:
+            pagePrint(1);
+            break;
+        case 2:
+            pagePrint(2);
+            break;
+        case 3:
+            pagePrint(3);
+            break;
+        case 4:
+            pagePrint(4);
+            break;
+      }
+    }
+
+    // checkbox function for 25% discount
+    yearlyBilling.oninput = () => {
+      let values = parseInt(pageView.value)
+      let value = price[values] - (price[values] * 25 / 100)
+      if(yearlyBilling.value == "on"){
+        console.log(yearlyBilling.value)
+        prices.innerHTML = "$" + price[values] + ".00";
+        yearlyBilling.value = "off"
+        
+      }else{
+        console.log(yearlyBilling.value)
+        prices.innerHTML = "$"+ value + ".00";
+        yearlyBilling.value = "on"
+      }
+
+    }
+
+    // to print the pages and price 
+    function pagePrint (value){
+      let priceValue = price[value] - (price[value] * 25 / 100)
+      console.log(yearlyBilling.value)
+      pages.innerHTML = page[value] + " ";
+      if(yearlyBilling.value == "on"){
+        prices.innerHTML = "$"+ priceValue + ".00";
+
+      }else{
+        prices.innerHTML = "$"+ price[value] + ".00";
+      }
+    }
+
+    // alert for tail button
+    function handleSubmit(){
+      window.alert(
+        "Enjoy your Trail peroid"
+      )
+    }
+
+
+        // function getCssValuePrefix()
+    // {
+      // var rtrnVal = '';//default to standard syntax
+      // var prefixes = ['-o-', '-ms-', '-moz-', '-webkit-'];
+
+      // // Create a temporary DOM object for testing
+      // var dom = document.createElement('div');
+
+      // for (var i = 0; i < prefixes.length; i++)
+      // {
+      //     // Attempt to set the style
+      //     dom.style.background = prefixes[i] + 'linear-gradient(#000000, #ffffff)';
+
+      //     // Detect if the style was successfully set
+      //     if (dom.style.background)
+      //     {
+      //         rtrnVal = prefixes[i];
+      //     }
+      // }
+
+      // dom = null;
+      // delete dom;
+
+      // return rtrnVal;
+    // }
+  </script>
+  </body>
 </html>
