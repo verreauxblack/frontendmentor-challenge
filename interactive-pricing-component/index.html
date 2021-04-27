@@ -32,6 +32,7 @@
         
       </div>
     </div>
+    <!-- <input type="text" id="text"> -->
     
     <div class="container">
       <div class="prices__pages">
@@ -48,9 +49,8 @@
         Yearly Billing
         <span class="discount-25">-25% </span>
       </div>
-      
       <div class="hr"></div>
-
+      <!-- <hr> -->
       <div class="trail">
         <ul class="trail-list">
           <li>Unlimited websites</li>
@@ -59,9 +59,7 @@
         </ul>
         <button onclick="handleSubmit()" >Start my trial</button>
       </div>
-
     </div>
-
   </div>
  
   <div class="attribution">
@@ -71,16 +69,14 @@
 
   <!-- JavaScripts -->
   <script>
-    // const initiazion
     const page = ["10K","50K","100K","500K","1K"]
     const price = [8,12,16,24,36]
     const rangeColor = [0, 33, 50, 66, 100]
 
-
-    //selectors
     var pageView = document.querySelector('input[type="range"]');
     var yearlyBilling = document.querySelector('input[type="checkbox"]');
     var pageClass = document.getElementsByClassName('slider-range');
+    console.log(pageView, yearlyBilling);
 
     const pages = document.getElementById("pages");
     const prices = document.getElementById("price");
@@ -88,10 +84,35 @@
     // console.log("pages",pages.value)
 
     pageView.oninput = () => {
-      pageViews();
+
+        pageViews();
     }
 
+    function getCssValuePrefix()
+    {
+        var rtrnVal = '';//default to standard syntax
+        var prefixes = ['-o-', '-ms-', '-moz-', '-webkit-'];
 
+        // Create a temporary DOM object for testing
+        var dom = document.createElement('div');
+
+        for (var i = 0; i < prefixes.length; i++)
+        {
+            // Attempt to set the style
+            dom.style.background = prefixes[i] + 'linear-gradient(#000000, #ffffff)';
+
+            // Detect if the style was successfully set
+            if (dom.style.background)
+            {
+                rtrnVal = prefixes[i];
+            }
+        }
+
+        dom = null;
+        delete dom;
+
+        return rtrnVal;
+    }
 
 
     function pageViews() {
@@ -102,9 +123,6 @@
       pageView.style.backgroundImage = color;
       // console.log
       document.getElementById('pageViews').style.background = getCssValuePrefix() + color;
-
-
-      //call the print function according to range values
       switch (parseInt(pageView.value)){
         case 0:
             pagePrint(0);
@@ -124,7 +142,6 @@
       }
     }
 
-    // checkbox function for 25% discount
     yearlyBilling.oninput = () => {
       let values = parseInt(pageView.value)
       let value = price[values] - (price[values] * 25 / 100)
@@ -141,7 +158,6 @@
 
     }
 
-    // to print the pages and price 
     function pagePrint (value){
       let priceValue = price[value] - (price[value] * 25 / 100)
       console.log(yearlyBilling.value)
@@ -154,39 +170,12 @@
       }
     }
 
-    // alert for tail button
+
     function handleSubmit(){
       window.alert(
         "Enjoy your Trail peroid"
       )
     }
-
-
-        // function getCssValuePrefix()
-    // {
-      // var rtrnVal = '';//default to standard syntax
-      // var prefixes = ['-o-', '-ms-', '-moz-', '-webkit-'];
-
-      // // Create a temporary DOM object for testing
-      // var dom = document.createElement('div');
-
-      // for (var i = 0; i < prefixes.length; i++)
-      // {
-      //     // Attempt to set the style
-      //     dom.style.background = prefixes[i] + 'linear-gradient(#000000, #ffffff)';
-
-      //     // Detect if the style was successfully set
-      //     if (dom.style.background)
-      //     {
-      //         rtrnVal = prefixes[i];
-      //     }
-      // }
-
-      // dom = null;
-      // delete dom;
-
-      // return rtrnVal;
-    // }
   </script>
   </body>
 </html>
