@@ -39,7 +39,7 @@
         <h4><span id="pages">100K</span> PAGEVIEWS</h4>
         <h4 class="price__month"><span id="price" class="price">$16.00</span> / month</h4>
       </div>
-      <input id="pageViews" class="slider-range" type="range" min="0" max="4" step="1" value="2" >
+      <input id="pageViews" class="slider-range sliding50" type="range" min="0" max="4" step="1" value="2" >
       <div class="billing">
         Monthly Billing
         <label class="switch">
@@ -69,9 +69,8 @@
 
   <!-- JavaScripts -->
   <script>
-    const page = ["10K","50K","100K","500K","1K"]
+    const page = ["10K","50K","100K","500K","1M"]
     const price = [8,12,16,24,36]
-    const rangeColor = [0, 33, 50, 66, 100]
 
     var pageView = document.querySelector('input[type="range"]');
     var yearlyBilling = document.querySelector('input[type="checkbox"]');
@@ -88,56 +87,51 @@
         pageViews();
     }
 
-    function getCssValuePrefix()
-    {
-        var rtrnVal = '';//default to standard syntax
-        var prefixes = ['-o-', '-ms-', '-moz-', '-webkit-'];
-
-        // Create a temporary DOM object for testing
-        var dom = document.createElement('div');
-
-        for (var i = 0; i < prefixes.length; i++)
-        {
-            // Attempt to set the style
-            dom.style.background = prefixes[i] + 'linear-gradient(#000000, #ffffff)';
-
-            // Detect if the style was successfully set
-            if (dom.style.background)
-            {
-                rtrnVal = prefixes[i];
-            }
-        }
-
-        dom = null;
-        delete dom;
-
-        return rtrnVal;
+    function removeClass(ids, addClass){
+      return document.getElementById(ids).classList.remove(addClass);
     }
 
-
     function pageViews() {
-      // var percent = ((100 / 6) * (pageView.value));
-      var percent = rangeColor[pageView.value]
-      let color = `linear-gradient( 90deg, hsl(174, 77%, 80%) ${percent}%, hsl(174, 77%, 80%) ${percent}%);` ;
-      console.log(color);
-      pageView.style.backgroundImage = color;
-      // console.log
-      document.getElementById('pageViews').style.background = getCssValuePrefix() + color;
       switch (parseInt(pageView.value)){
         case 0:
             pagePrint(0);
+            removeClass('pageViews', 'sliding50');
+            removeClass('pageViews', 'sliding25');
+            removeClass('pageViews', 'sliding75');
+            removeClass('pageViews', 'sliding100');
+            document.getElementById('pageViews').classList.add('sliding0')
             break;
         case 1:
             pagePrint(1);
+            removeClass('pageViews', 'sliding50');
+            removeClass('pageViews', 'sliding0');
+            removeClass('pageViews', 'sliding75');
+            removeClass('pageViews', 'sliding100');
+            document.getElementById('pageViews').classList.add('sliding25')
             break;
         case 2:
             pagePrint(2);
+            removeClass('pageViews', 'sliding0');
+            removeClass('pageViews', 'sliding25');
+            removeClass('pageViews', 'sliding75');
+            removeClass('pageViews', 'sliding100');
+            document.getElementById('pageViews').classList.add('sliding50')
             break;
         case 3:
             pagePrint(3);
+            removeClass('pageViews', 'sliding50');
+            removeClass('pageViews', 'sliding25');
+            removeClass('pageViews', 'sliding0');
+            removeClass('pageViews', 'sliding100');
+            document.getElementById('pageViews').classList.add('sliding75')
             break;
         case 4:
             pagePrint(4);
+            removeClass('pageViews', 'sliding50');
+            removeClass('pageViews', 'sliding25');
+            removeClass('pageViews', 'sliding75');
+            removeClass('pageViews', 'sliding0');
+            document.getElementById('pageViews').classList.add('sliding100')
             break;
       }
     }
